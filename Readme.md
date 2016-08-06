@@ -1,7 +1,7 @@
 # Личный проект «Код и Магия» [![Build status][travis-image]][travis-url] [![Dependency status][dependency-image]][dependency-url]
 
 * Студент: [Proc](https://up.htmlacademy.ru/javascript/6/user/212985).
-* Наставник: `Неизвестно`.
+* Наставник: `Павел Глушков`.
 
 ---
 
