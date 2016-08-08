@@ -58,12 +58,13 @@ function getMessage(a, b) {
   // }
 
   //Если первый аргумент массив,
+  var aArray;
   if (a instanceof Array) {
-    var A_Array = 'true';
+    aArray = 'true';
   }
 
-  if (A_Array) {
-    
+  if (aArray) {
+
     //то вернуть строку:
     //    "Я прошёл [numberOfSteps] шагов"
     //    где [numberOfSteps] — это сумма значений переданного массива
@@ -75,11 +76,12 @@ function getMessage(a, b) {
   }
 
   //Если оба аргумента массивы,
+  var bArray;
   if (b instanceof Array) {
-    var B_Array = 'true';
+    bArray = 'true';
   }
 
-  if (A_Array && B_Array) {
+  if (aArray && bArray) {
 
     //то вернуть строку:
     //    "Я прошёл [distancePath] метров"...
