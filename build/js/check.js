@@ -30,9 +30,40 @@ function getMessage(a, b) {
     return 'Я прыгнул на ' + a * 100 + ' сантиметров';
   }
 
+  // //Если первый аргумент массив,
+  // if (a instanceof Array) {
+  //
+  //   //то вернуть строку:
+  //   //    "Я прошёл [numberOfSteps] шагов"
+  //   //    где [numberOfSteps] — это сумма значений переданного массива
+  //   var numberOfSteps = 0;
+  //   for (var i = 0; i < a.length; i++) {
+  //     numberOfSteps += a[i];
+  //   }
+  //   return 'Я прошёл ' + numberOfSteps + ' шагов';
+  // }
+  //
+  // //Если оба аргумента массивы,
+  // if (a instanceof Array && b instanceof Array) {
+  //
+  //   //то вернуть строку:
+  //   //    "Я прошёл [distancePath] метров"...
+  //   //    где [distancePath] — это сумма произведений соответствующих элементов массивов a и b,
+  //   //    cумма произведения первого элемента a с первым элементом b, второго со вторым и так далее
+  //   var distancePath = 0;
+  //   for (var i = 0; (i < a.length) && (i < b.length); i++) {
+  //     distancePath += a[i] *  b[i];
+  //   }
+  //   return 'Я прошёл ' + distancePath + ' метров';
+  // }
+
   //Если первый аргумент массив,
   if (a instanceof Array) {
+    var A_Array = 'true';
+  }
 
+  if (A_Array) {
+    
     //то вернуть строку:
     //    "Я прошёл [numberOfSteps] шагов"
     //    где [numberOfSteps] — это сумма значений переданного массива
@@ -44,7 +75,11 @@ function getMessage(a, b) {
   }
 
   //Если оба аргумента массивы,
-  if (a instanceof Array && b instanceof Array) {
+  if (b instanceof Array) {
+    var B_Array = 'true';
+  }
+
+  if (A_Array && B_Array) {
 
     //то вернуть строку:
     //    "Я прошёл [distancePath] метров"...
