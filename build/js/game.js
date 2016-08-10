@@ -394,19 +394,86 @@ window.Game = (function() {
     /**
      * Отрисовка экрана паузы.
      */
+
+// 1. Каждое сообщение должно быть отрисовано на холсте канваса
+      // this.ctx на многоугольнике любой формы
+      // залитым белым цветом #FFFFFF.
+      // Это может быть как правильный многоугольник,
+      // нарисованный методом fillRect,
+      // так и неправильный нарисованный с помощью методов
+        // beginPath, moveTo, closePath и fill.
+// 2. Под сообщением должна располагаться тень: многоугольник такой же формы,
+  // залитый цветом rgba(0, 0, 0, 0.7) (полупрозрачный чёрный),
+  // смещённый относительно белого на 10px вниз и вправо.
+// 3. На многоугольнике должен быть отрисован текст сообщения
+  // с помощью метода fillText.
+  // Текст должен быть набран шрифтом PT Mono размером 16px.
+  // NB! Особенностью отрисовки текста на канвасе является то,
+  // что он не поддерживает перенос, поэтому каждая новая строчка
+  // должна быть отрисована новым вызовом метода fillText или strokeText.
+  // Оптимальным способом является задание текста в массиве
+  // и итерирование по нему для вывода сообщения целиком.
+// 4. Текст каждого сообщения нужно придумать самостоятельно..
+
     _drawPauseScreen: function() {
+
       switch (this.state.currentStatus) {
+
         case Verdict.WIN:
-          console.log('you have won!');
+          this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+          this.ctx.fillRect(0+10, 0+10, 250, 100);
+
+          this.ctx.fillStyle = '#FFFFFF';
+          this.ctx.fillRect(0, 0, 250, 100);
+
+          this.ctx.fillStyle = 'blue';
+          this.ctx.font = '16px PT Mono';
+          this.ctx.textBaseline = 'hanging';
+          this.ctx.fillText('you have won!', 5, 10);
+          // console.log('you have won!');
           break;
+
         case Verdict.FAIL:
-          console.log('you have failed!');
+          this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+          this.ctx.fillRect(0+10, 0+10, 250, 100);
+
+          this.ctx.fillStyle = '#FFFFFF';
+          this.ctx.fillRect(0, 0, 250, 100);
+
+          this.ctx.fillStyle = 'blue';
+          this.ctx.font = '16px PT Mono';
+          this.ctx.textBaseline = 'hanging';
+          this.ctx.fillText('you have failed!', 5, 10);
+          // console.log('you have failed!');
           break;
+
         case Verdict.PAUSE:
-          console.log('game is on pause!');
+          this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+          this.ctx.fillRect(0+10, 0+10, 250, 100);
+
+          this.ctx.fillStyle = '#FFFFFF';
+          this.ctx.fillRect(0, 0, 250, 100);
+
+          this.ctx.fillStyle = 'blue';
+          this.ctx.font = '16px PT Mono';
+          this.ctx.textBaseline = 'hanging';
+          this.ctx.fillText('game is on pause!', 5, 10);
+          // console.log('game is on pause!');
           break;
+
         case Verdict.INTRO:
-          console.log('welcome to the game! Press Space to start');
+          this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+          this.ctx.fillRect(0+10, 0+10, 250, 100);
+
+          this.ctx.fillStyle = '#FFFFFF';
+          this.ctx.fillRect(0, 0, 250, 100);
+
+          this.ctx.fillStyle = 'blue';
+          this.ctx.font = '16px PT Mono';
+          this.ctx.textBaseline = 'hanging';
+          this.ctx.fillText('Welcome to the game!', 5, 10);
+          this.ctx.fillText('Press Space to start', 5, 50);
+          // console.log('welcome to the game! Press Space to start');
           break;
       }
     },
