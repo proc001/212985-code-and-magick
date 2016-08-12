@@ -244,9 +244,9 @@ window.Game = (function() {
    * @param {Element} container
    * @constructor
    */
-  var Game = function(container) {
+  var Game = function(container) { // Функция присваивает глобальной переменной Game конструктор игры
     this.container = container;
-    this.canvas = document.createElement('canvas');
+    this.canvas = document.createElement('canvas'); // Конструктор создает элемент канвас и кладет его в указанный ему контейнер.
     this.canvas.width = container.clientWidth;
     this.canvas.height = container.clientHeight;
     this.container.appendChild(this.canvas);
@@ -261,6 +261,40 @@ window.Game = (function() {
   };
 
   Game.prototype = {
+
+// trial-trip
+
+// var showGameMessage;
+// var showGameMessage = function () {
+//
+//   return
+//     this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+//     this.ctx.fillRect(0 + 10, 0 + 10, 250, 100);
+//
+//     this.ctx.fillStyle = '#FFFFFF';
+//     this.ctx.fillRect(0, 0, 250, 100);
+//
+//     this.ctx.fillStyle = 'blue';
+//     this.ctx.font = '16px PT Mono';
+//     this.ctx.textBaseline = 'hanging';
+//
+//     if (Verdict.WIN) {
+//       this.ctx.fillText('you have won!', 5, 10);
+//     }
+//     else if (Verdict.FAIL) {
+//       this.ctx.fillText('you have failed!', 5, 10);
+//     }
+//     else if (Verdict.PAUSE) {
+//       this.ctx.fillText('game is on pause!', 5, 10);
+//     }
+//     else if (Verdict.INTRO) {
+//       this.ctx.fillText('Welcome to the game!', 5, 10);
+//       this.ctx.fillText('Press Space to start', 5, 50);
+//     }
+// }
+
+// // trial-trip finish
+
     /**
      * Текущий уровень игры.
      * @type {Level}
@@ -421,7 +455,7 @@ window.Game = (function() {
 
         case Verdict.WIN:
           this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-          this.ctx.fillRect(0+10, 0+10, 250, 100);
+          this.ctx.fillRect(0 + 10, 0 + 10, 250, 100);
 
           this.ctx.fillStyle = '#FFFFFF';
           this.ctx.fillRect(0, 0, 250, 100);
@@ -435,7 +469,7 @@ window.Game = (function() {
 
         case Verdict.FAIL:
           this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-          this.ctx.fillRect(0+10, 0+10, 250, 100);
+          this.ctx.fillRect(0 + 10, 0 + 10, 250, 100);
 
           this.ctx.fillStyle = '#FFFFFF';
           this.ctx.fillRect(0, 0, 250, 100);
@@ -449,7 +483,7 @@ window.Game = (function() {
 
         case Verdict.PAUSE:
           this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-          this.ctx.fillRect(0+10, 0+10, 250, 100);
+          this.ctx.fillRect(0 + 10, 0 + 10, 250, 100);
 
           this.ctx.fillStyle = '#FFFFFF';
           this.ctx.fillRect(0, 0, 250, 100);
@@ -463,7 +497,7 @@ window.Game = (function() {
 
         case Verdict.INTRO:
           this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-          this.ctx.fillRect(0+10, 0+10, 250, 100);
+          this.ctx.fillRect(0 + 10, 0 + 10, 250, 100);
 
           this.ctx.fillStyle = '#FFFFFF';
           this.ctx.fillRect(0, 0, 250, 100);
