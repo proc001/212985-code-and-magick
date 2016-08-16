@@ -262,36 +262,32 @@ window.Game = (function() {
 
   Game.prototype = {
 
-// trial-trip
+// trial-trip+
 
-// var showGameMessage;
-// var showGameMessage = function () {
-//
-//   return
-//     this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-//     this.ctx.fillRect(0 + 10, 0 + 10, 250, 100);
-//
-//     this.ctx.fillStyle = '#FFFFFF';
-//     this.ctx.fillRect(0, 0, 250, 100);
-//
-//     this.ctx.fillStyle = 'blue';
-//     this.ctx.font = '16px PT Mono';
-//     this.ctx.textBaseline = 'hanging';
-//
-//     if (Verdict.WIN) {
-//       this.ctx.fillText('you have won!', 5, 10);
-//     }
-//     else if (Verdict.FAIL) {
-//       this.ctx.fillText('you have failed!', 5, 10);
-//     }
-//     else if (Verdict.PAUSE) {
-//       this.ctx.fillText('game is on pause!', 5, 10);
-//     }
-//     else if (Verdict.INTRO) {
-//       this.ctx.fillText('Welcome to the game!', 5, 10);
-//       this.ctx.fillText('Press Space to start', 5, 50);
-//     }
-// }
+showGameMessage: function (aElement) {
+
+    this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+    this.ctx.fillRect(0 + 10, 0 + 10, 250, 100);
+
+    this.ctx.fillStyle = '#FFFFFF';
+    this.ctx.fillRect(0, 0, 250, 100);
+
+    this.ctx.fillStyle = 'blue';
+    this.ctx.font = '16px PT Mono';
+    this.ctx.textBaseline = 'hanging';
+
+    var listGameMessag = {
+      win: ['you have won!'],
+      fail: ['you have failed!'],
+      pause: ['game is on pause!'],
+      intro: ['Welcome to the game!'], ['Press Space to start'],
+    };
+
+    var lengthArray = listGameMessag[aElement].length;
+    for (var i = 0; i < lengthArray; i++) {
+        this.ctx.fillText('listGameMessag[aElement][i]', 5, 10);
+    }
+}
 
 // // trial-trip finish
 
@@ -496,6 +492,7 @@ window.Game = (function() {
           break;
 
         case Verdict.INTRO:
+          // showGameMessage('intro');
           this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
           this.ctx.fillRect(0 + 10, 0 + 10, 250, 100);
 
