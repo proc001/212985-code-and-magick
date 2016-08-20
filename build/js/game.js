@@ -262,9 +262,17 @@ window.Game = (function() {
 
   Game.prototype = {
 
-// trial-trip+
+// trial-trip
 
-showGameMessage: function (aElement) {
+listGameMessag: {
+  win:    'you have won!',
+  fail:   'you have failed!',
+  pause:  'game is on pause!',
+  intro1: 'Welcome to the game!',
+  intro2: 'Press Space to start'
+}
+
+showGameMessageCanvas: function () {
 
     this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
     this.ctx.fillRect(0 + 10, 0 + 10, 250, 100);
@@ -275,21 +283,13 @@ showGameMessage: function (aElement) {
     this.ctx.fillStyle = 'blue';
     this.ctx.font = '16px PT Mono';
     this.ctx.textBaseline = 'hanging';
-
-    var listGameMessag = {
-      win: ['you have won!'],
-      fail: ['you have failed!'],
-      pause: ['game is on pause!'],
-      intro: ['Welcome to the game!'], ['Press Space to start'],
-    };
-
-    var lengthArray = listGameMessag[aElement].length;
-    for (var i = 0; i < lengthArray; i++) {
-        this.ctx.fillText('listGameMessag[aElement][i]', 5, 10);
-    }
 }
 
-// // trial-trip finish
+showGameMessage: function (messageName) {
+  this.ctx.fillText(messageName, 5, 10);
+}
+
+// trial-trip finish
 
     /**
      * Текущий уровень игры.
@@ -450,61 +450,70 @@ showGameMessage: function (aElement) {
       switch (this.state.currentStatus) {
 
         case Verdict.WIN:
-          this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-          this.ctx.fillRect(0 + 10, 0 + 10, 250, 100);
-
-          this.ctx.fillStyle = '#FFFFFF';
-          this.ctx.fillRect(0, 0, 250, 100);
-
-          this.ctx.fillStyle = 'blue';
-          this.ctx.font = '16px PT Mono';
-          this.ctx.textBaseline = 'hanging';
-          this.ctx.fillText('you have won!', 5, 10);
-          // console.log('you have won!');
+          this.showGameMessageCanvas();
+          this.showGameMessage(this.listGameMessag.win);
+          // this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+          // this.ctx.fillRect(0 + 10, 0 + 10, 250, 100);
+          //
+          // this.ctx.fillStyle = '#FFFFFF';
+          // this.ctx.fillRect(0, 0, 250, 100);
+          //
+          // this.ctx.fillStyle = 'blue';
+          // this.ctx.font = '16px PT Mono';
+          // this.ctx.textBaseline = 'hanging';
+          // this.ctx.fillText('you have won!', 5, 10);
+          // // console.log('you have won!');
           break;
 
         case Verdict.FAIL:
-          this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-          this.ctx.fillRect(0 + 10, 0 + 10, 250, 100);
-
-          this.ctx.fillStyle = '#FFFFFF';
-          this.ctx.fillRect(0, 0, 250, 100);
-
-          this.ctx.fillStyle = 'blue';
-          this.ctx.font = '16px PT Mono';
-          this.ctx.textBaseline = 'hanging';
-          this.ctx.fillText('you have failed!', 5, 10);
-          // console.log('you have failed!');
+          this.showGameMessageCanvas();
+          this.showGameMessage(this.listGameMessag.fail);
+          // this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+          // this.ctx.fillRect(0 + 10, 0 + 10, 250, 100);
+          //
+          // this.ctx.fillStyle = '#FFFFFF';
+          // this.ctx.fillRect(0, 0, 250, 100);
+          //
+          // this.ctx.fillStyle = 'blue';
+          // this.ctx.font = '16px PT Mono';
+          // this.ctx.textBaseline = 'hanging';
+          // this.ctx.fillText('you have failed!', 5, 10);
+          // // console.log('you have failed!');
           break;
 
         case Verdict.PAUSE:
-          this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-          this.ctx.fillRect(0 + 10, 0 + 10, 250, 100);
-
-          this.ctx.fillStyle = '#FFFFFF';
-          this.ctx.fillRect(0, 0, 250, 100);
-
-          this.ctx.fillStyle = 'blue';
-          this.ctx.font = '16px PT Mono';
-          this.ctx.textBaseline = 'hanging';
-          this.ctx.fillText('game is on pause!', 5, 10);
-          // console.log('game is on pause!');
+          this.showGameMessageCanvas();
+          this.showGameMessage(this.listGameMessag.pause);
+          // this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+          // this.ctx.fillRect(0 + 10, 0 + 10, 250, 100);
+          //
+          // this.ctx.fillStyle = '#FFFFFF';
+          // this.ctx.fillRect(0, 0, 250, 100);
+          //
+          // this.ctx.fillStyle = 'blue';
+          // this.ctx.font = '16px PT Mono';
+          // this.ctx.textBaseline = 'hanging';
+          // this.ctx.fillText('game is on pause!', 5, 10);
+          // // console.log('game is on pause!');
           break;
 
         case Verdict.INTRO:
+          this.showGameMessageCanvas();
+          this.showGameMessage(this.listGameMessag.intro1);
+          this.showGameMessage(this.listGameMessag.intro2);
           // showGameMessage('intro');
-          this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-          this.ctx.fillRect(0 + 10, 0 + 10, 250, 100);
-
-          this.ctx.fillStyle = '#FFFFFF';
-          this.ctx.fillRect(0, 0, 250, 100);
-
-          this.ctx.fillStyle = 'blue';
-          this.ctx.font = '16px PT Mono';
-          this.ctx.textBaseline = 'hanging';
-          this.ctx.fillText('Welcome to the game!', 5, 10);
-          this.ctx.fillText('Press Space to start', 5, 50);
-          // console.log('welcome to the game! Press Space to start');
+          // this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+          // this.ctx.fillRect(0 + 10, 0 + 10, 250, 100);
+          //
+          // this.ctx.fillStyle = '#FFFFFF';
+          // this.ctx.fillRect(0, 0, 250, 100);
+          //
+          // this.ctx.fillStyle = 'blue';
+          // this.ctx.font = '16px PT Mono';
+          // this.ctx.textBaseline = 'hanging';
+          // this.ctx.fillText('Welcome to the game!', 5, 10);
+          // this.ctx.fillText('Press Space to start', 5, 50);
+          // // console.log('welcome to the game! Press Space to start');
           break;
       }
     },
