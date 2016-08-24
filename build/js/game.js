@@ -270,7 +270,7 @@ listGameMessag: {
   pause:  'game is on pause!',
   intro1: 'Welcome to the game!',
   intro2: 'Press Space to start'
-}
+},
 
 showGameMessageCanvas: function () {
 
@@ -283,11 +283,11 @@ showGameMessageCanvas: function () {
     this.ctx.fillStyle = 'blue';
     this.ctx.font = '16px PT Mono';
     this.ctx.textBaseline = 'hanging';
-}
+},
 
 showGameMessage: function (messageName) {
   this.ctx.fillText(messageName, 5, 10);
-}
+},
 
 // trial-trip finish
 
